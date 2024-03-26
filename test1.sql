@@ -1,2 +1,2 @@
-grant role sysadmin to role 'kalyani;
+grant role kl1 to role 'kalyani;
 
