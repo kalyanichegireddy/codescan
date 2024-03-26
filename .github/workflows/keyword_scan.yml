@@ -17,7 +17,7 @@ jobs:
       
       - name: Scan for keywords
         run: |
-          SEARCH_STRING="your_search_string_here"
+          SEARCH_STRING="sysadmin"
           if grep -rq "$SEARCH_STRING" .; then
               echo "Found the string '$SEARCH_STRING' in the repository."
           else
