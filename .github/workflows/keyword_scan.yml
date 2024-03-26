@@ -17,10 +17,11 @@ jobs:
       
       - name: Scan for keywords
         run: |
-          KEYWORDS=("grant" "sysadmin" "accountadmin")
+          KEYWORDS=("sysadmin" "grant" "admin")
           for keyword in "${KEYWORDS[@]}"; do
-              if grep -q -r "$keyword" .; then
+              if grep -rq "$keyword" .; then
                   echo "Error: Found keyword '$keyword' in the code."
                   exit 1
               fi
-          done
+          done || :
+          echo "No keywords found in the code."
