@@ -1,4 +1,4 @@
-name: Check Keywords
+name: keyword_scan
 
 on:
   pull_request:
@@ -19,7 +19,7 @@ jobs:
         run: |
           KEYWORDS=("grant" "sysadmin" "accountadmin")
           for keyword in "${KEYWORDS[@]}"; do
-              if grep -Rl --exclude="*.yml" "$keyword" .; then
+              if grep -q -r "$keyword" .; then
                   echo "Error: Found keyword '$keyword' in the code."
                   exit 1
               fi
