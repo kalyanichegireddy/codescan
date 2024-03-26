@@ -1,0 +1,26 @@
+name: Check Keywords
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  keyword-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Scan for keywords
+        run: |
+          KEYWORDS=("grant" "sysadmin" "accountadmin")
+          for keyword in "${KEYWORDS[@]}"; do
+              if grep -Rl --exclude="*.yml" "$keyword" .; then
+                  echo "Error: Found keyword '$keyword' in the code."
+                  exit 1
+              fi
+          done
