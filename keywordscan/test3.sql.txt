@@ -1,0 +1,1 @@
+create or replace table table_name(col1 number);
