@@ -4,9 +4,13 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'keywordscan/**'  
   push:
     branches:
       - main
+    paths:
+      - 'keywordscan/**'  
 
 jobs:
   keyword-check:
