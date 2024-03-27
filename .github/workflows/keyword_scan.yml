@@ -17,8 +17,8 @@ jobs:
       
       - name: Scan for keywords
         run: |
-          SEARCH_STRING="sysadmin"
-          if grep -rq "$SEARCH_STRING" .; then
+          
+          if [ $(git grep -c "sysadmin" | wc -l) -gt 0 ]; then
               echo "Found the string '$SEARCH_STRING' in the repository."
           else
               echo "Did not find the string '$SEARCH_STRING' in the repository."
