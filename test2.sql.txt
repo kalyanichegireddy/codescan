@@ -1,1 +1,0 @@
-grant role analyst to user kalyani;
